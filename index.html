@@ -195,6 +195,20 @@
             </div>
 
             <div class="field">
+              <label for="company_size">Company size</label>
+              <div class="select-wrap">
+                <select id="company_size" name="company_size" required>
+                  <option value="">Choose a range</option>
+                  <option value="1-49">Fewer than 50 employees</option>
+                  <option value="50-199">50&ndash;199 employees</option>
+                  <option value="200-499">200&ndash;499 employees</option>
+                  <option value="500-1000">500&ndash;1,000 employees</option>
+                  <option value="1001+">More than 1,000 employees</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
               <label for="message">Message <span class="optional">(optional)</span></label>
               <p class="hint" id="message-hint">What would you like to see in the demo?</p>
               <textarea id="message" name="message" rows="4" maxlength="1000" aria-describedby="message-hint"></textarea>
