@@ -1,5 +1,5 @@
 /*
-  ShipFast demo site: shared styles for index.html and thanks.html.
+  ShipFast site: shared styles for index.html and thanks.html.
   No external fonts, images or scripts. Light and dark mode follow the
   visitor's device setting (prefers-color-scheme).
   Text colors meet WCAG AA contrast (4.5:1); field borders and focus
@@ -25,11 +25,6 @@
   --link: #1546b3;
   --focus: #1546b3;
   --accent: #d97706;
-  --banner-bg: #0e1726;
-  --banner-text: #ffffff;
-  --notice-bg: #fff6e5;
-  --notice-border: #b26b00;
-  --notice-text: #4a2c00;
   --badge-bg: #e8effd;
   --badge-text: #123e9e;
   --error: #b42318;
@@ -58,11 +53,6 @@
     --link: #9fc0ff;
     --focus: #9fc0ff;
     --accent: #f5b13d;
-    --banner-bg: #1a2742;
-    --banner-text: #e7ecf3;
-    --notice-bg: #2b2111;
-    --notice-border: #d39b3a;
-    --notice-text: #f5e6c8;
     --badge-bg: #182a4d;
     --badge-text: #b8d0ff;
     --error: #ff8a80;
@@ -197,15 +187,6 @@ a:hover {
 }
 
 /* ---------- Header ---------- */
-
-.demo-banner {
-  margin: 0;
-  padding: 6px 16px;
-  background: var(--banner-bg);
-  color: var(--banner-text);
-  font-size: 0.875rem;
-  text-align: center;
-}
 
 .site-header {
   background: var(--bg);
@@ -559,7 +540,7 @@ a:hover {
   font-size: 0.9375rem;
 }
 
-/* ---------- Demo-request form ---------- */
+/* ---------- Walkthrough request form ---------- */
 
 .form-card {
   margin-top: 28px;
@@ -678,30 +659,6 @@ a:hover {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-/* Honest demo notice */
-.notice {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid var(--notice-border);
-  border-left-width: 5px;
-  border-radius: var(--radius-sm);
-  background: var(--notice-bg);
-  color: var(--notice-text);
-}
-
-.notice svg {
-  flex: none;
-  margin-top: 2px;
-}
-
-.notice p {
-  margin: 0;
-  font-size: 0.9375rem;
-  font-weight: 500;
 }
 
 /* ---------- Thank-you page ---------- */

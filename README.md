@@ -1,12 +1,12 @@
-# ShipFast demo site
+# ShipFast site
 
-This is a small, two-page website for **ShipFast**, a made-up company that sells route-planning software to delivery and logistics fleets. ShipFast doesn't exist. The site is part of a portfolio demo of an AI sales-automation system: someone fills in the "Request a demo" form, the form is sent to a Make scenario, and the visitor lands on a thank-you page while Make handles the lead in the background.
+This is a small, two-page website for **ShipFast**, a concept company that sells route-planning software to delivery and logistics fleets. ShipFast isn't a real business. The site is the front door of an AI sales-automation system, the AI Revenue Engine: someone fills in the "Request a walkthrough" form, the form is sent to a Make scenario, and the visitor lands on a thank-you page while Make handles the lead in the background.
 
 The site is plain HTML and CSS. It has no JavaScript, cookies, analytics, external fonts or images. It asks search engines not to list it (`noindex, nofollow`), but anyone with the link can open it.
 
 ## What's in this folder
 
-- `index.html` is the home page: what ShipFast does, how it works, an illustrative example and the demo-request form.
+- `index.html` is the home page: what ShipFast does, how it works, an illustrative example and the walkthrough request form.
 - `thanks.html` is the page visitors land on after they send the form.
 - `styles.css` holds the styles for both pages. Light or dark mode follows the visitor's device setting.
 - `README.md` is this file.
@@ -78,13 +78,13 @@ Make also checks the hidden **honeypot** field, `fax`. People never see or reach
 
 GitHub Free only publishes Pages sites from **public** repositories. That's why the site has its own public repo, separate from the private main project.
 
-The examples below use the GitHub username `alex-demo` and the repo name `shipfast-demo`. Swap in your own.
+The examples below use the GitHub username `alex-example` and the repo name `shipfast-site`. Swap in your own.
 
-1. On GitHub, click **New repository**. Name it `shipfast-demo`, choose **Public**, and click **Create repository**.
+1. On GitHub, click **New repository**. Name it `shipfast-site`, choose **Public**, and click **Create repository**.
 2. On the new repo's page, click **uploading an existing file**. Drag in the four files (`index.html`, `thanks.html`, `styles.css`, `README.md`), then click **Commit changes**.
 3. Go to the repo's **Settings → Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**, then choose the `main` branch and the `/ (root)` folder. Click **Save**.
-4. Wait a minute or two (up to 10 minutes the first time), then refresh the page. GitHub shows **Your site is live at** `https://alex-demo.github.io/shipfast-demo/`.
-5. Open that address to check the site. The thank-you page is at `https://alex-demo.github.io/shipfast-demo/thanks.html`.
+4. Wait a minute or two (up to 10 minutes the first time), then refresh the page. GitHub shows **Your site is live at** `https://alex-example.github.io/shipfast-site/`.
+5. Open that address to check the site. The thank-you page is at `https://alex-example.github.io/shipfast-site/thanks.html`.
 
 Every later commit to `main` republishes the site automatically.
 
@@ -93,9 +93,9 @@ If you prefer git to uploading, first copy the four files into a new, empty fold
 ```
 git init
 git add index.html thanks.html styles.css README.md
-git commit -m "ShipFast demo site"
+git commit -m "ShipFast site"
 git branch -M main
-git remote add origin https://github.com/alex-demo/shipfast-demo.git
+git remote add origin https://github.com/alex-example/shipfast-site.git
 git push -u origin main
 ```
 
@@ -106,7 +106,7 @@ Then carry on from step 3.
 When someone sends the form, their browser posts the fields to Make's webhook and waits for an answer. Make W2 must answer with a redirect to the thank-you page:
 
 - **Status:** `303` ("See Other"). This tells the browser to go to another page.
-- **Header:** `Location` set to the site address plus `thanks.html`, written out in full, including the repo name. In the example: `https://alex-demo.github.io/shipfast-demo/thanks.html`.
+- **Header:** `Location` set to the site address plus `thanks.html`, written out in full, including the repo name. In the example: `https://alex-example.github.io/shipfast-site/thanks.html`.
 - **Timing:** within **180 seconds**.
 
 In Make, the form branch of W2 should start with a **Webhooks → Webhook response** module. Set its status to `303`, add a custom header named `Location` with the thank-you address as its value, and leave the body empty. Keep it **before** the slow steps (company lookup, AI decision, HubSpot, email). The visitor is redirected right away, and Make carries on with the lead after that.
@@ -124,9 +124,10 @@ The form sends `application/x-www-form-urlencoded` data with exactly these field
 | `company` | `Example Courier Co` | Required |
 | `website` | `https://www.example.com` | Required, must be a full web address |
 | `fleet_size` | `50-199` | Required. One of `1-9`, `10-49`, `50-199`, `200-999`, `1000+` |
+| `company_size` | `50-199` | Required. Employees: one of `1-49`, `50-199`, `200-499`, `500-1000`, `1001+`. Make routes by it (decision #40) |
 | `message` | `We run 60 vans.` | Optional, can be empty |
 | `form_token` | `Qm7tR2xVb9LkP4sW1nZc8HfJ` | Hidden. Your `FORM_TOKEN` |
-| `source` | `shipfast-demo-site` | Hidden, always this value |
+| `source` | `shipfast-demo-site` | Hidden, always this value. Make W2 checks it, so it keeps its original name |
 | `fax` | *(empty)* | Hidden honeypot. Must be empty |
 
 On the wire, that same submission looks like this:
@@ -142,13 +143,13 @@ The browser checks the fields before sending. Required fields can't be empty, th
 ## Test the whole flow
 
 1. Open the live site and fill in the form with test details, for example the values from the table above. The company and website can be a real logistics company, because the system only looks up public company facts. The name and email must be test details.
-2. Click **Request a demo**. Within a few seconds you should land on `thanks.html`.
+2. Click **Request a walkthrough**. Within a few seconds you should land on `thanks.html`.
 3. In Make, open W2's run history and check that the run received the fields above.
 
 ## Rules for editing this site
 
 - **Keep the field names and fleet-size values exactly as they are.** Make expects them. If you rename one here, rename it in Make too.
-- **Keep the honest notice** near the form and in the footer: "ShipFast is a fictional company created for a portfolio demo. Use test details only — please don't submit real personal information."
+- **Keep the footer line** "ShipFast is a concept product." It keeps visitors from taking ShipFast for a real company. The pages also ask search engines not to list them (`noindex`).
 - **Keep the example labeled "Illustrative example".** Its numbers are made up and must never be presented as a real customer's results.
-- **Autocomplete is off on purpose.** The form asks for test details, so it shouldn't invite browsers to fill in anyone's real name, email or employer.
+- **Autocomplete is off on purpose,** so browsers don't fill in anyone's saved name, email or employer.
 - **Keep it static.** GitHub Pages only serves files. All processing happens in Make.

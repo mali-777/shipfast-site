@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="ShipFast plans delivery routes for your whole fleet in minutes instead of hours. A fictional company created for a portfolio demo.">
+  <meta name="description" content="ShipFast plans delivery routes for your whole fleet in minutes instead of hours.">
   <title>ShipFast — Plan delivery routes in minutes</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%231546b3'/%3E%3Cpath%20d='M9%2023c0-5%2014-3%2014-9s-8-5-8-5'%20fill='none'%20stroke='%23fff'%20stroke-width='2.5'%20stroke-linecap='round'/%3E%3Ccircle%20cx='9'%20cy='23'%20r='3'%20fill='%23fff'/%3E%3Ccircle%20cx='15'%20cy='9'%20r='3'%20fill='%23fff'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
@@ -14,7 +14,6 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header">
-    <p class="demo-banner">Portfolio demo: ShipFast is a fictional company.</p>
     <div class="container header-inner">
       <a class="brand" href="index.html">
         <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
@@ -28,7 +27,7 @@
       <nav class="site-nav" aria-label="Main">
         <a href="#how">How it works</a>
         <a href="#example">Example</a>
-        <a class="button button-small" href="#demo">Request a demo</a>
+        <a class="button button-small" href="#walkthrough">Request a walkthrough</a>
       </nav>
     </div>
   </header>
@@ -41,7 +40,7 @@
           <h1 id="hero-title">Plan delivery routes in minutes, not hours</h1>
           <p class="lead">ShipFast turns the day's deliveries into a ready-to-drive route for every driver. Your dispatchers get their mornings back, and your vans drive fewer miles.</p>
           <div class="hero-actions">
-            <a class="button" href="#demo">Request a demo</a>
+            <a class="button" href="#walkthrough">Request a walkthrough</a>
             <a class="button button-secondary" href="#how">See how it works</a>
           </div>
         </div>
@@ -137,24 +136,16 @@
       </div>
     </section>
 
-    <section id="demo" class="section" aria-labelledby="demo-title">
+    <section id="walkthrough" class="section" aria-labelledby="walkthrough-title">
       <div class="container narrow">
-        <h2 id="demo-title">Request a demo</h2>
+        <h2 id="walkthrough-title">Request a walkthrough</h2>
         <p class="section-intro">Tell us about your fleet and we'll email you a link to book a call with the right person on our team.</p>
 
         <div class="form-card">
-          <div class="notice" role="note">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 11v6M12 7.5v.01"/>
-            </svg>
-            <p>ShipFast is a fictional company created for a portfolio demo. Use test details only — please don't submit real personal information.</p>
-          </div>
-
           <!--
             Field names and values must match the data contract that Make W2 expects.
-            autocomplete="off" on the personal fields is on purpose: this demo asks for
-            test details, so we don't want browsers filling in anyone's real details.
+            autocomplete="off" on the personal fields is on purpose, so browsers don't
+            fill in anyone's saved name, email or employer.
           -->
           <form method="post" action="https://hook.eu1.make.com/b7gplh6mo32exwk5lcnyzbk5jw46yurq">
             <p class="form-note">All fields are required unless marked optional.</p>
@@ -210,7 +201,7 @@
 
             <div class="field">
               <label for="message">Message <span class="optional">(optional)</span></label>
-              <p class="hint" id="message-hint">What would you like to see in the demo?</p>
+              <p class="hint" id="message-hint">What would you like to see in the walkthrough?</p>
               <textarea id="message" name="message" rows="4" maxlength="1000" aria-describedby="message-hint"></textarea>
             </div>
 
@@ -223,7 +214,7 @@
               <input type="text" id="fax" name="fax" tabindex="-1" autocomplete="off">
             </div>
 
-            <button type="submit" class="button button-block">Request a demo</button>
+            <button type="submit" class="button button-block">Request a walkthrough</button>
           </form>
         </div>
       </div>
@@ -233,7 +224,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">ShipFast</p>
-      <p class="footer-notice">ShipFast is a fictional company created for a portfolio demo. Use test details only — please don't submit real personal information.</p>
+      <p class="footer-notice">ShipFast is a concept product.</p>
     </div>
   </footer>
 </body>
